@@ -1,0 +1,71 @@
+
+/* 12 * 60 + 12 * 20 = 960px wide.*/
+/*  60/960 = 0.0625 */
+/* 20/960 = 0.02083333333 */
+/* 320px * 6.25% = 20px */
+
+.row {
+  max-width: 60em; /* 960px */
+  padding-left: 14.5%;
+
+  margin: 0 auto;
+}
+/* Clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+.row::after {
+  clear: both;
+}
+.col-3, .col-4, .col-6, .col-12 {
+  float: left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+/* Mobile defaults */
+.col-3, .col-4, .col-6, .col-12 {
+  width: 100%;
+}
+.card {
+  border: 1px solid lightgrey;
+  margin-bottom: 1.5em;
+  display: inline-block;
+  width: 80%;
+}
+/* Non-mobile, grid */
+@media only screen and (min-width: 639px) {
+  /* 3 columns, 3/12 in % */
+  .card {
+
+    width: 25%;
+  }
+  .col-4 {
+    min-width: 25%;
+    float: left;
+  }
+  .col-12 > .card {
+
+    min-width: 75%;
+    max-width: 100%;
+  }
+}
+@media (min-width: 643px) {
+  .card {
+    margin: 0 0.5em 1.5em 0.5em;
+  }
+
+  /* 4 columns */
+  .col-4 {
+    min-width: 26.5%;
+    float: left;
+  }
+
+  /* 6 columns */
+
+
+  /* 12 columns */
+  .col-12 {
+  }
+}
